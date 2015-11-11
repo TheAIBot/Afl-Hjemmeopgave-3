@@ -9,9 +9,4 @@ public class Birch extends Tree {
 		color = new Color(0, 255, 0);
 		GROW_RATE = 0.7;
 	}
-
-	public void grow()
-	{
-		size += GROW_RATE;
-	}
 }

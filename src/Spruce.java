@@ -9,9 +9,4 @@ public class Spruce extends Tree {
 		color = new Color(255, 0, 0);
 		GROW_RATE = 0.5;
 	}
-
-	public void grow()
-	{
-		size += GROW_RATE;
-	}
 }

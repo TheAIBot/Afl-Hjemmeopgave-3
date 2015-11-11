@@ -9,9 +9,4 @@ public class Beech extends Tree {
 		color = new Color(0, 0, 255);
 		GROW_RATE = 1;
 	}
-
-	public void grow()
-	{
-		size += GROW_RATE;
-	}
 }

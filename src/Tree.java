@@ -2,7 +2,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.awt.Color;
 
-public abstract class Tree {
+public class Tree {
 	protected Color color;
 	protected Point position;
 	protected double size;
@@ -14,7 +14,10 @@ public abstract class Tree {
 		position = pos;
 	}
 	
-	public abstract void grow();
+	public void grow()
+	{
+		size += GROW_RATE;
+	}
 	
 	public Color getColor()
 	{
