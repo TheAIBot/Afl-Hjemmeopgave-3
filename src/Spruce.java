@@ -1,0 +1,17 @@
+import java.awt.Point;
+import java.awt.Color;
+
+public class Spruce extends Tree {
+	
+	
+	public Spruce(Point pos, double initialSize) {
+		super(pos, initialSize);
+		color = new Color(255, 0, 0);
+		GROW_RATE = 0.5;
+	}
+
+	public void grow()
+	{
+		size += GROW_RATE;
+	}
+}
