@@ -3,23 +3,24 @@ import java.util.ArrayList;
 import java.awt.Color;
 
 public class Tree {
-	protected Color color;
 	protected Point position;
 	protected double size;
-	double GROW_RATE;
+	protected final double GROW_RATE;
+	private final Color COLOR;
 	
-	
+	/*
 	public Tree(Point pos, double initialSize)
 	{
 		this.size = initialSize;
 		this.position = pos;
 	}
+	*/
 	
 	public Tree(Point pos, double initialSize, Color color, double growRate)
 	{
 		this.size = initialSize;
 		this.position = pos;
-		this.color = color;
+		this.COLOR = color;
 		this.GROW_RATE = growRate;
 	}
 	
@@ -30,7 +31,7 @@ public class Tree {
 	
 	public Color getColor()
 	{
-		return color;
+		return COLOR;
 	}
 	
 	public Point getPosition()
