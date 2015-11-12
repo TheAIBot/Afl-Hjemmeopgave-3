@@ -1,9 +1,9 @@
-import java.awt.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class SimpleBag implements Bag{
-	ArrayList<String> theBag = new ArrayList<String>(){};
+	protected ArrayList<String> theBag = new ArrayList<String>();
 
 	@Override
 	public boolean addString(String str) {
@@ -12,9 +12,7 @@ public class SimpleBag implements Bag{
 
 	@Override
 	public boolean removeAllOccurrences(String str) {
-		ArrayList<String> token = new ArrayList<String>(1);
-		token.add(str);
-		return theBag.removeAll(token);
+		return theBag.removeAll(Collections.singleton(str));
 	}
 
 	@Override
@@ -22,7 +20,8 @@ public class SimpleBag implements Bag{
 		//Størrelsen skal være over index, da indexet til det største element er size - 1
 		if (theBag.size() > index && index >= 0) { 
 			return theBag.get(index);
-		}else return null;
+		}
+		return null;
 	}
 
 	@Override
