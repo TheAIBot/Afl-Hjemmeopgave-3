@@ -8,10 +8,19 @@ public class Tree {
 	protected double size;
 	double GROW_RATE;
 	
+	
 	public Tree(Point pos, double initialSize)
 	{
-		size = initialSize;
-		position = pos;
+		this.size = initialSize;
+		this.position = pos;
+	}
+	
+	public Tree(Point pos, double initialSize, Color color, double growRate)
+	{
+		this.size = initialSize;
+		this.position = pos;
+		this.color = color;
+		this.GROW_RATE = growRate;
 	}
 	
 	public void grow()

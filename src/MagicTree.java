@@ -8,9 +8,12 @@ public class MagicTree extends Tree {
 	
 	
 	public MagicTree(Point pos, double initialSize) {
+		super(pos, initialSize, new Color(255, 0, 255), 0.7);
+		/*
 		super(pos, initialSize);
 		color = new Color(255, 0, 255);
 		GROW_RATE = 0.7;
+		*/
 	}
 
 	public void grow()
@@ -32,10 +35,14 @@ public class MagicTree extends Tree {
 	
 	private boolean shouldDoTeleport()
 	{
+		//Oneliners for the win!!! Dont delete it, please Andreas...
+		return (stepsSinceLastTeleport == TELEPORT_FREQUENCY)? true: (ConstAndUtil.getRandomIntBetween(0, 20) == 0);		
+		/*
 		if (stepsSinceLastTeleport == TELEPORT_FREQUENCY) {
 			return true;
 		}
-		return (ConstAndUtil.getRandomIntBetween(0, 20) == 0);
+		return (ConstAndUtil.getRandomIntBetween(0, 20) == 0); 
+		*/
 	}
 	
 	private void teleport()
