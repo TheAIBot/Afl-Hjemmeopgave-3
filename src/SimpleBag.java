@@ -18,10 +18,7 @@ public class SimpleBag implements Bag{
 	@Override
 	public String getString(int index) {
 		//Størrelsen skal være over index, da indexet til det største element er size - 1
-		if (theBag.size() > index && index >= 0) { 
-			return theBag.get(index);
-		}
-		return null;
+		return (theBag.size() > index && index >= 0)? theBag.get(index): null;
 	}
 
 	@Override
