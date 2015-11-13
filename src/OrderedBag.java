@@ -8,5 +8,4 @@ public class OrderedBag extends SimpleBag{
 		Collections.sort(theBag);
 		return true;
 	}
-	
 }

@@ -5,11 +5,6 @@ public class Birch extends Tree {
 	
 	
 	public Birch(Point pos, double initialSize) {
-		super(pos, initialSize, new Color(0, 255, 0), 0.7);
-		/*
-		super(pos, initialSize);
-		color = new Color(0, 255, 0);
-		GROW_RATE = 0.7;
-		*/
+		super(pos, initialSize, Color.BLUE, 0.7);
 	}
 }
