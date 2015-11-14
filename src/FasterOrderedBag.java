@@ -1,38 +1,32 @@
 public class FasterOrderedBag extends SimpleBag {
-	public boolean addString(String str) { //Laver en indsættelses manøvre(*)
+	public boolean addString(String str) {
+		theBag.add(getSortedInsertionIndex(str), str);
+		return true;
+	}
+	
+	private int getSortedInsertionIndex(String str)
+	{
 		if (theBag.size() == 0) {
-			theBag.add(str);
-			return true;
+			return 0;
 		} else {
 			int minValue = 0;
 			int maxValue = theBag.size();
 			while (true) {
-				int middle = minValue + (maxValue - minValue) / 2;
-				if (middle == 0 || minValue == maxValue || middle >= theBag.size()) {
-					/*if (theBag.get(minValue).compareTo(str) > 0) {
-						theBag.add(minValue, str);
+				int halfDifferenceMinMax = (maxValue - minValue) / 2;
+				if (halfDifferenceMinMax == 0) {
+					if (theBag.get(minValue).compareTo(str) > 0) {
+						return minValue;
 					} else {
-						theBag.add(minValue + 1, str);
-					}*/
-					theBag.add(minValue, str);
-					return true;
+						return maxValue;
+					}
 				}
+				int middle = minValue + halfDifferenceMinMax;
 				if (theBag.get(middle).compareTo(str) > 0) {
-					maxValue -= middle;
+					maxValue -= halfDifferenceMinMax;
 				} else {
-					minValue += middle;
+					minValue += halfDifferenceMinMax;
 				}
 			}
-			/*
-			for (int i = 0; i< theBag.size(); i++) {
-				if (theBag.get(i).compareTo(str) > 0) {
-					theBag.add(i, str);
-					return true;
-				}
-			}
-			*/
 		}
-		//theBag.add(str);
-		//return true;
 	}
 }
