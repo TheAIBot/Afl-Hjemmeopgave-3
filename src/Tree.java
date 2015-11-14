@@ -8,14 +8,6 @@ public class Tree {
 	protected final double GROW_RATE;
 	private final Color COLOR;
 	
-	/*
-	public Tree(Point pos, double initialSize)
-	{
-		this.size = initialSize;
-		this.position = pos;
-	}
-	*/
-	
 	public Tree(Point pos, double initialSize, Color color, double growRate)
 	{
 		this.size = initialSize;
