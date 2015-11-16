@@ -36,7 +36,7 @@ public class OrderedBagWithoutRepetitions extends OrderedBag{
 				if (stringComparisonResult == 0) {
 					return new int[] {middle, CONTAINS_STRING};
 				}
-				else if (theBag.get(middle).compareTo(str) > 0) {
+				else if (stringComparisonResult > 0) {
 					maxValue -= halfDifferenceMinMax;
 				} else {
 					minValue += halfDifferenceMinMax;

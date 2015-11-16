@@ -27,7 +27,6 @@ public class OrderedBag extends SimpleBag{
 		
 		//The element simply needs to be added if the list size is 0
 		if (theBag.size() == 0) {
-			
 			return 0;
 		} else {
 			//Initilizing needed variables.
@@ -49,8 +48,11 @@ public class OrderedBag extends SimpleBag{
 				}
 				//If the place is not found this "turn", it, depending on whether the element should be placed after the middle element,
 				//or before it, shifts the search area to the later middle half of the current search area, or the lower middle half.
-				int middle = minValue + halfDifferenceMinMax;
-				if (theBag.get(middle).compareTo(str) > 0) {//If placed exactly in the middle(*)
+				final int middle = minValue + halfDifferenceMinMax;
+				final int stringComparisonResult = theBag.get(middle).compareTo(str);
+				if (stringComparisonResult == 0) {
+					return middle;
+				}else if (stringComparisonResult > 0) {//If placed exactly in the middle(*)
 					maxValue -= halfDifferenceMinMax;
 				} else {
 					minValue += halfDifferenceMinMax;
