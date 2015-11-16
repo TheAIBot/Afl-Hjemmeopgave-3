@@ -12,16 +12,21 @@ public class FasterOrderedBag extends SimpleBag {
 			int minValue = 0;
 			int maxValue = theBag.size();
 			while (true) {
-				int halfDifferenceMinMax = (maxValue - minValue) / 2;
+				final int halfDifferenceMinMax = (maxValue - minValue) / 2;
 				if (halfDifferenceMinMax == 0) {
+					final int stringComparisonResult = theBag.get(minValue).compareTo(str);
 					if (theBag.get(minValue).compareTo(str) > 0) {
 						return minValue;
 					} else {
 						return maxValue;
 					}
 				}
-				int middle = minValue + halfDifferenceMinMax;
-				if (theBag.get(middle).compareTo(str) > 0) {
+				final int middle = minValue + halfDifferenceMinMax;
+				final int stringComparisonResult = theBag.get(middle).compareTo(str);
+				if (stringComparisonResult == 0) {
+					return middle;
+				}
+				else if (stringComparisonResult > 0) {
 					maxValue -= halfDifferenceMinMax;
 				} else {
 					minValue += halfDifferenceMinMax;
