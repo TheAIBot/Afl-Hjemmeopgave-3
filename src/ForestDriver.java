@@ -1,30 +1,27 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import sun.net.www.content.audio.x_aiff;
 
 public class ForestDriver {
 
 	public static void main(String[] args) {
 
 		SimpleBag normalOrderedBag = new OrderedBag();
-		SimpleBag fasterOrderedBag = new FasterOrderedBag();
+		SimpleBag fasterOrderedBag = new OrderedBag();
 		System.out.println("--Ordered Bags Test--");
 		testTimeForBags(normalOrderedBag, fasterOrderedBag, 20000);
 		testTimeForBags(normalOrderedBag, fasterOrderedBag, 20000);
 		
 		
 		SimpleBag normalOrderedBagWithoutRepetition = new OrderedBagWithoutRepetitions();
-		SimpleBag fasterOrderedBagWithoutRepetition = new FasterOrderedBagWithoutRepetition();
+		SimpleBag fasterOrderedBagWithoutRepetition = new OrderedBagWithoutRepetitions();
 		System.out.println("--Ordered Bags Without Repetition Test--");
 		testTimeForBags(normalOrderedBagWithoutRepetition, fasterOrderedBagWithoutRepetition, 20000);
 		testTimeForBags(normalOrderedBagWithoutRepetition, fasterOrderedBagWithoutRepetition, 20000);
 		
 		
 		
-		ForestSimulation fSim = new ForestSimulation(120,300);
-		fSim.run();
+		//ForestSimulation fSim = new ForestSimulation(120,300);
+		//fSim.run();
 	}
 	
 	private static void testTimeForBags(Bag normal, Bag Faster, int times)

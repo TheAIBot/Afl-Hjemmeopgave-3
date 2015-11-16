@@ -1,5 +1,3 @@
-import java.util.Collections;
-
 /**
  * A bag wherein the elements always are placed in a sorted order.
  * @author jesper *
