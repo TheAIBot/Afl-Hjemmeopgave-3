@@ -1,8 +1,6 @@
 import java.awt.Point;
 
-public class ForestSimulation {
-	
-	    
+public class ForestSimulation {	    
 	    private int steps; 
 	    private int noOftrees; 
 	    private  Tree[] trees; // Array contaiong the trees
@@ -34,7 +32,7 @@ public class ForestSimulation {
 	                // Draw and then grow a trees 
 	                drawTree(trees[j]);
 	                trees[j].grow();
-	               // check(trees[j]);
+	                //check(trees[j]);
 	                
 	            }   
 	         // show the new situation and pause 100 millseconds

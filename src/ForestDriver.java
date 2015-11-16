@@ -23,8 +23,8 @@ public class ForestDriver {
 		
 		
 		
-		//ForestSimulation fSim = new ForestSimulation(120,300);
-		//fSim.run();
+		ForestSimulation fSim = new ForestSimulation(120,300);
+		fSim.run();
 	}
 	
 	private static void testTimeForBags(Bag normal, Bag Faster, int times)
