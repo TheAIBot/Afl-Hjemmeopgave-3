@@ -3,7 +3,7 @@ import java.util.Collections;
 
 /**
  * A bag of string. To this there can be added elements, removed some, 
- * a copy can be taken out, and the number of elements can be found.
+ * a copy of an element can be taken out, and the number of elements can be found.
  * @author jesper
  *
  */
@@ -12,8 +12,9 @@ public class SimpleBag implements Bag{
 
 	@Override
 	public boolean addString(String str) {
-		//Add returns the truth value true, no matter what.
-		return theBag.add(str);
+		//Checks if the string to be added is null - if it is, it returns false and does not add the element,
+		//else it adds the element and adds the string to the bag - the .add method always returns true.
+		return (str == null)? false: theBag.add(str);
 	}
 
 	@Override
