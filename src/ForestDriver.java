@@ -5,41 +5,57 @@ public class ForestDriver {
 
 	public static void main(String[] args) {
 
+		SimpleBag normalOrderedBag = new OrderedBag();
 		System.out.println("--Ordered Bags Test--");
-		testTimeForBags(new OrderedBag(), new FasterOrderedBag());
+		testTimeForBags(normalOrderedBag, normalOrderedBag, 20000);
+		testTimeForBags(normalOrderedBag, normalOrderedBag, 20000);
 		
+		
+		SimpleBag normalOrderedBagWithoutRepetition = new OrderedBagWithoutRepetitions();
 		System.out.println("--Ordered Bags Without Repetition Test--");
-		testTimeForBags(new OrderedBagWithoutRepetitions(), new FasterOrderedBagWithoutRepetition());
+		testTimeForBags(normalOrderedBagWithoutRepetition, normalOrderedBagWithoutRepetition, 20000);
+		testTimeForBags(normalOrderedBagWithoutRepetition, normalOrderedBagWithoutRepetition, 20000);
+		
+		SimpleBag bagWithoutRepetition = new BagWithoutRepetitions();
+		System.out.println("--Bag Without Repetition Test--");
+		testTimeForBags(bagWithoutRepetition, bagWithoutRepetition, 20000);
+		testTimeForBags(bagWithoutRepetition, bagWithoutRepetition, 20000);
 		
 		
 		
-		ForestSimulation fSim = new ForestSimulation(120,300);
-		fSim.run();
+		//ForestSimulation fSim = new ForestSimulation(120,300);
+		//fSim.run();
 	}
 	
-	private static void testTimeForBags(Bag normal, Bag Faster)
+	private static void testTimeForBags(Bag normal, Bag Faster, int times)
 	{
-		List<Long> fasterTimes = new ArrayList<Long>();
-		List<Long> normalTimes = new ArrayList<Long>();
+		List<Long> fasterTimes = new ArrayList<Long>(2 * times);
+		List<Long> normalTimes = new ArrayList<Long>(2 * times);
 		
-		for (int i = 0; i < 20000; i++) {
+		for (int i = 0; i < times; i++) {
 			long startT = System.nanoTime();
 			Faster.addString(String.valueOf(i));
 			fasterTimes.add(System.nanoTime() - startT);
 		}
 		
-		for (int i = 0; i < 20000; i++) {
+		for (int i = 0; i < times; i++) {
 			long startT = System.nanoTime();
 			normal.addString(String.valueOf(i));
 			normalTimes.add(System.nanoTime() - startT);
 		}
 		boolean fasterIsCorrect = true;
-		for (int i = 0; i < Faster.noOfElements(); i++) {
-			if (!Faster.getString(i).equals(normal.getString(i))) {
-				fasterIsCorrect = false;
-				break;
+		if (normal.noOfElements() == Faster.noOfElements()) {
+			for (int i = 0; i < Faster.noOfElements(); i++) {
+				if (!Faster.getString(i).equals(normal.getString(i))) {
+					fasterIsCorrect = false;
+					break;
+				}
 			}
 		}
+		else {
+			fasterIsCorrect = false;
+		}
+
 		System.out.println("is faster correct: " + String.valueOf(fasterIsCorrect));
 		System.out.println("Faster: " + calculateAverage(fasterTimes));
 		System.out.println("Normal: " + calculateAverage(normalTimes));
