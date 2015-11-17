@@ -6,17 +6,20 @@ public class ForestDriver {
 	public static void main(String[] args) {
 
 		SimpleBag normalOrderedBag = new OrderedBag();
-		SimpleBag fasterOrderedBag = new OrderedBag();
 		System.out.println("--Ordered Bags Test--");
-		testTimeForBags(normalOrderedBag, fasterOrderedBag, 20000);
-		testTimeForBags(normalOrderedBag, fasterOrderedBag, 20000);
+		testTimeForBags(normalOrderedBag, normalOrderedBag, 20000);
+		testTimeForBags(normalOrderedBag, normalOrderedBag, 20000);
 		
 		
 		SimpleBag normalOrderedBagWithoutRepetition = new OrderedBagWithoutRepetitions();
-		SimpleBag fasterOrderedBagWithoutRepetition = new OrderedBagWithoutRepetitions();
 		System.out.println("--Ordered Bags Without Repetition Test--");
-		testTimeForBags(normalOrderedBagWithoutRepetition, fasterOrderedBagWithoutRepetition, 20000);
-		testTimeForBags(normalOrderedBagWithoutRepetition, fasterOrderedBagWithoutRepetition, 20000);
+		testTimeForBags(normalOrderedBagWithoutRepetition, normalOrderedBagWithoutRepetition, 20000);
+		testTimeForBags(normalOrderedBagWithoutRepetition, normalOrderedBagWithoutRepetition, 20000);
+		
+		SimpleBag bagWithoutRepetition = new BagWithoutRepetitions();
+		System.out.println("--Bag Without Repetition Test--");
+		testTimeForBags(bagWithoutRepetition, bagWithoutRepetition, 20000);
+		testTimeForBags(bagWithoutRepetition, bagWithoutRepetition, 20000);
 		
 		
 		
