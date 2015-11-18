@@ -4,7 +4,19 @@ import java.util.List;
 public class ForestDriver {
 
 	public static void main(String[] args) {
-
+		
+		OrderedBag oBag = new OrderedBag();
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 3; j++) {
+				oBag.addString(String.valueOf(i));
+			}
+		}
+		int fisk = 0;
+		fisk = 1;
+		oBag.removeAllOccurrences("2");
+		fisk = 2;
+		System.out.println(fisk);
+		/*
 		SimpleBag normalOrderedBag = new OrderedBag();
 		System.out.println("--Ordered Bags Test--");
 		testTimeForBags(normalOrderedBag, normalOrderedBag, 20000);
@@ -20,7 +32,7 @@ public class ForestDriver {
 		System.out.println("--Bag Without Repetition Test--");
 		testTimeForBags(bagWithoutRepetition, bagWithoutRepetition, 20000);
 		testTimeForBags(bagWithoutRepetition, bagWithoutRepetition, 20000);
-		
+		*/
 		
 		
 		//ForestSimulation fSim = new ForestSimulation(120,300);
