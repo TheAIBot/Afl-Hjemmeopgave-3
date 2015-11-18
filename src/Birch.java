@@ -14,6 +14,6 @@ public class Birch extends Tree {
 	 * @param initialSize The size that the beech tree starts with.
 	 */
 	public Birch(Point pos, double initialSize) {
-	super(pos, initialSize, Color.BLUE, 0.7);
+		super(pos, initialSize, Color.BLUE, 0.7);
 	}
 }
