@@ -5,14 +5,10 @@
  * @author jesper
  *
  */
-public class BagWithoutRepetitions extends OrderedBagWithoutRepetitions{
+public class BagWithoutRepetitions extends SimpleBag{
 	//Skal man tage højde for hvis den sættes lig med noget?(*)
-
+	
 	public boolean addString(String str) {
-		int[] strInsertioninformation = getSortedInsertionIndexAndIsContained(str);
-		if (strInsertioninformation[CONTAINS_INDEX] == DOES_NOT_CONTAIN_STRING) {
-			theBag.add(str);
-		}
-		return false;
+		return (theBag.contains(str))? theBag.add(str): false;
 	}
 }

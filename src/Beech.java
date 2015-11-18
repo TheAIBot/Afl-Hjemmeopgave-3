@@ -12,6 +12,6 @@ public class Beech extends Tree {
 	public Beech(Point pos, double initialSize) {
 		//The beech was to be the fastest growing tree, why its growrate is set equal to 1,
 		//which is higher than every other tree's growthrate.
-		super(pos, initialSize, Color.CYAN, 1);
+		super(pos, initialSize, Color.CYAN, -1);
 	}
 }
