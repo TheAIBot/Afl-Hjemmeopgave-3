@@ -8,7 +8,7 @@ import java.util.Collections;
  *
  */
 public class SimpleBag implements Bag{
-	protected final List<String> theBag = new ArrayList<String>();
+	protected List<String> theBag = new ArrayList<String>();
 
 	@Override
 	public boolean addString(String str) {

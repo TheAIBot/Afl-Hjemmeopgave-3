@@ -6,21 +6,21 @@ import java.util.Random;
 public class ForestDriver {
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
+		
+		//System.out.println("ss".compareTo(null));
 		
 		OrderedBag oBag = new OrderedBag();
+		Random fdisk = new Random(12);
 		for (int i = 0; i < 5; i++) {
+			oBag.addString(null);
 			for (int j = 0; j < 3; j++) {
-				oBag.addString(String.valueOf(i));
+				oBag.addString(String.valueOf(fdisk.nextInt(4)));
 			}
 		}
-		int fisk = 0;
-		fisk = 1;
+		System.out.println(oBag.theBag);
 		oBag.removeAllOccurrences("2");
-		fisk = 2;
-		System.out.println(fisk);
-=======
-		/*
+		System.out.println(oBag.theBag);
+		
 		Random r = new Random();
 		OrderedBagWithoutRepetitions testBag = new OrderedBagWithoutRepetitions();
 		List<String> sortedBag = new ArrayList<String>();
@@ -36,8 +36,6 @@ public class ForestDriver {
 			System.out.println(sortedBag.get(i));
 			System.out.println();
 		}
-		*/
->>>>>>> origin/master
 		/*
 		SimpleBag normalOrderedBag = new OrderedBag();
 		System.out.println("--Ordered Bags Test--");
@@ -55,10 +53,6 @@ public class ForestDriver {
 		System.out.println("--Bag Without Repetition Test--");
 		testTimeForBags(bagWithoutRepetition, bagWithoutRepetition, 20000);
 		testTimeForBags(bagWithoutRepetition, bagWithoutRepetition, 20000);
-<<<<<<< HEAD
-=======
-		
->>>>>>> origin/master
 		*/
 		
 		ForestSimulation fSim = new ForestSimulation(120,300);

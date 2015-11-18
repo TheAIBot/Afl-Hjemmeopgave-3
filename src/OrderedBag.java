@@ -1,45 +1,38 @@
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-=======
-import java.util.Collections;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
->>>>>>> origin/master
 
 /**
  * A bag wherein the elements always are placed in a sorted order.
  * 
  * @author jesper *
  */
-<<<<<<< HEAD
-public class OrderedBag extends OrderedBagWithoutRepetitions {
-=======
-public class OrderedBag extends SimpleBag{
->>>>>>> origin/master
+public class OrderedBag extends SimpleBag {
 
 	public boolean addString(String str) {
-		int indexBinarySearch = Collections.binarySearch(theBag, str);
-		if(indexBinarySearch <= 0) theBag.add(-1*(indexBinarySearch + 1),str);
+		int indexBinarySearch = betterBinarySearch(str);
+		if(indexBinarySearch < 0) {
+			int fisk = -1*(indexBinarySearch + 1);
+			theBag.add(fisk,str);
+		}
 		else theBag.add(indexBinarySearch,str);
 		return true;				
 	}
-	/*
-	public boolean removeAll(String str) {
-		int indexBinarySearch = Collections.binarySearch(theBag, str);
-		if(indexBinarySearch >= 0){
-			int indexEndOfOccurences = indexBinarySearch;
-			int indexBegginingOfOccurences = indexBinarySearch;
-			while (theBag.get(indexBinarySearch).equals(str)) indexEndOfOccurences++;
-			while(theBag.get(indexBinarySearch).equals(str)) indexBegginingOfOccurences++;
-			List<String> newBag1 = theBag.subList(0, indexBegginingOfOccurences);
-			theBag = newBag1.addAll(theBag.subList(indexEndOfOccurences, theBag.size() - 1));
-			return true;
-		} else return false;
+
+	protected int betterBinarySearch(String str) {
+		return Collections.binarySearch(theBag, str, (x, t) -> {
+			if (t == null && x == null) {
+				return 0;
+			}
+			else if (t == null) {
+				return 1;
+			} else if (x == null) {
+				return -1;
+			}
+			return x.compareTo(t);
+		});
 	}
-<<<<<<< HEAD
 
 	@Override
 	public boolean removeAllOccurrences(String str) {
@@ -47,33 +40,24 @@ public class OrderedBag extends SimpleBag{
 		// false.
 		// An singleton is used, as only one element needs to be checkes for and
 		// removed.
-		int insertionIndex = Collections.binarySearch(theBag, str);
+		int insertionIndex = betterBinarySearch(str);
 		if (insertionIndex >= 0) {
 			int minSameValueIndex = insertionIndex;
 			int maxSameValueIndex = insertionIndex;
-			while (minSameValueIndex > 0 && theBag.get(minSameValueIndex - 1).equals(str)) {
+			while (minSameValueIndex > 0 && theBag.get(minSameValueIndex).equals(str)) {
 				minSameValueIndex--;
 			}
-			minSameValueIndex = (minSameValueIndex > 0)? minSameValueIndex-- : minSameValueIndex;
-			while (maxSameValueIndex < theBag.size() - 1 && theBag.get(maxSameValueIndex + 1).equals(str)) {
+			while (maxSameValueIndex < theBag.size() - 1 && theBag.get(maxSameValueIndex).equals(str)) {
 				maxSameValueIndex++;
 			}
-			maxSameValueIndex = (maxSameValueIndex < theBag.size() - 1)? ++maxSameValueIndex : maxSameValueIndex;
 			List<String> newbag = new ArrayList<String>(theBag.size() - (maxSameValueIndex - minSameValueIndex));
-			if (minSameValueIndex != 0) {
-				newbag.addAll(theBag.subList(0, minSameValueIndex));
-			}
-			if (maxSameValueIndex != theBag.size() - 1) {
-				newbag.addAll(theBag.subList(maxSameValueIndex, theBag.size() - 1));
-			}
+			newbag.addAll(theBag.subList(0, minSameValueIndex));
+			newbag.addAll(theBag.subList(maxSameValueIndex, theBag.size() - 1));
+			
+			theBag = newbag;
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-	
-=======
-	*/
->>>>>>> origin/master
 }

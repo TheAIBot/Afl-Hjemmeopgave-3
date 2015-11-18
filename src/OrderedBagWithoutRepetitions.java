@@ -5,7 +5,7 @@ public class OrderedBagWithoutRepetitions extends OrderedBag{
 	
 	public boolean addString(String str) {
 
-		int indexBinarySearch = Collections.binarySearch(theBag, str);
+		int indexBinarySearch = betterBinarySearch(str);
 		if(indexBinarySearch < 0){
 			theBag.add(-1*(indexBinarySearch + 1),str);
 			return true;
