@@ -20,6 +20,9 @@ public abstract class Tree {
 	 */
 	public Tree(Point pos, double initialSize, Color color, double growRate)
 	{
+		if (!ConstAndUtil.positionOK(pos)) {
+			pos = ConstAndUtil.getLegalRandomPosition();
+		}
 		this.size = initialSize;
 		this.position = pos;
 		this.COLOR = color;
