@@ -44,7 +44,7 @@ public class OrderedBag extends SimpleBag {
 		if (insertionIndex >= 0) {
 			int minSameValueIndex = insertionIndex;
 			int maxSameValueIndex = insertionIndex;
-			while (minSameValueIndex > 0 && theBag.get(minSameValueIndex).equals(str)) {
+			while (minSameValueIndex > 0 && theBag.get(minSameValueIndex - 1).equals(str)) {
 				minSameValueIndex--;
 			}
 			while (maxSameValueIndex < theBag.size() - 1 && theBag.get(maxSameValueIndex).equals(str)) {
@@ -52,7 +52,7 @@ public class OrderedBag extends SimpleBag {
 			}
 			List<String> newbag = new ArrayList<String>(theBag.size() - (maxSameValueIndex - minSameValueIndex));
 			newbag.addAll(theBag.subList(0, minSameValueIndex));
-			newbag.addAll(theBag.subList(maxSameValueIndex, theBag.size() - 1));
+			newbag.addAll(theBag.subList(maxSameValueIndex, theBag.size()));
 			
 			theBag = newbag;
 			return true;
