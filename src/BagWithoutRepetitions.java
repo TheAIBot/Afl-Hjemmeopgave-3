@@ -9,6 +9,6 @@ public class BagWithoutRepetitions extends SimpleBag {
 		// If the string already is contained in the bag, it doesen't add the
 		// element to the bag and returns false, else it add's the element and
 		// returns true.
-		return (theBag.contains(str)) ? theBag.add(str) : false;
+		return (!theBag.contains(str)) ? theBag.add(str) : false;
 	}
 }

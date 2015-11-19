@@ -18,8 +18,8 @@ public class OrderedBagWithoutRepetitions extends OrderedBag {
 		// the bag, and at the same time to find the index that element should be
 		// inserted at, if it is not already in the bag.
 		int indexBinarySearch = betterBinarySearch(str);
-		if (indexBinarySearch < 0) {
-			theBag.add(-1 * (indexBinarySearch + 1), str);
+		if (!isContainedBinarySearch(indexBinarySearch)) {
+			theBag.add(getIndexFromBinarySearchIndex(indexBinarySearch), str);
 			return true;
 		}
 		return false;
@@ -30,7 +30,7 @@ public class OrderedBagWithoutRepetitions extends OrderedBag {
 		// remove, betterBinarySearch is used to find the index of the element to remove
 		// if it is in the bag.
 		int deletionIndex = betterBinarySearch(str);
-		if (deletionIndex >= 0) {
+		if (isContainedBinarySearch(deletionIndex)) {
 			theBag.remove(deletionIndex);
 			return true;
 		}
