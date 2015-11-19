@@ -6,7 +6,7 @@ import java.util.Random;
 public class ForestDriver {
 
 	public static void main(String[] args) {
-		Tests.testBagInsertionSpeed();
+		//Tests.testBagInsertionSpeed();
 		Tests.testBagRemoveAllOccurencesSpeed();
 		
 		/*

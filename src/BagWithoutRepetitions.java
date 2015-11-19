@@ -1,14 +1,14 @@
 
-
 /**
  * A bag without any repeated elements - ie. a set, but with indexes.
- * @author jesper
  *
  */
-public class BagWithoutRepetitions extends SimpleBag{
-	//Skal man tage højde for hvis den sættes lig med noget?(*)
-	
+public class BagWithoutRepetitions extends SimpleBag {
+
 	public boolean addString(String str) {
-		return (theBag.contains(str))? theBag.add(str): false;
+		// If the string already is contained in the bag, it doesen't add the
+		// element to the bag and returns false, else it add's the element and
+		// returns true.
+		return (theBag.contains(str)) ? theBag.add(str) : false;
 	}
 }

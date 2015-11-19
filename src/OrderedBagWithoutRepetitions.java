@@ -1,27 +1,40 @@
-import java.util.Collections;
+/**
+ * A bag which is always sorted without repeating elements.
+ *
+ */
+public class OrderedBagWithoutRepetitions extends OrderedBag {
 
-
-public class OrderedBagWithoutRepetitions extends OrderedBag{
-	
+	/**
+	 * Add the string "str" to the strings in the bag so the bag continues to be
+	 * sorted if it's not already in the bag. If str was added then the method
+	 * returns "true" and "false" otherwise.
+	 * 
+	 * @param str
+	 * @return true if successfully added
+	 */
 	public boolean addString(String str) {
 
+		// Using betterBinarySearch to figure out if the element is already in
+		// the bag, and at the same time to find the index that element should be
+		// inserted at, if it is not already in the bag.
 		int indexBinarySearch = betterBinarySearch(str);
-		if(indexBinarySearch < 0){
-			theBag.add(-1*(indexBinarySearch + 1),str);
+		if (indexBinarySearch < 0) {
+			theBag.add(-1 * (indexBinarySearch + 1), str);
 			return true;
-		} else return false;
-		/*
-		int[] strInsertioninformation = getSortedInsertionIndexAndIsContained(str);
-		//Since the list will always be sorted, as the only way to change the list is to remove elements of an type,
-		//or add them, whithout one being apple to specify an index, kepping the bag sorted can be done by adding in the string sent,
-		//to the place in the list, so that the element before it in the list, if there is any, comes before it in the sorting, 
-		//and so the same is true for the element following it, if there is any.
-		
-		if (strInsertioninformation[CONTAINS_INDEX] == DOES_NOT_CONTAIN_STRING) {
-			theBag.add(strInsertioninformation[INSERTION_INDEX], str);
 		}
 		return false;
-		*/
-		
 	}
+
+	public boolean removeAllOccurrences(String str) {
+		// because the bag is sorted and becausethere is only 0 or 1 elements to
+		// remove, betterBinarySearch is used to find the index of the element to remove
+		// if it is in the bag.
+		int deletionIndex = betterBinarySearch(str);
+		if (deletionIndex >= 0) {
+			theBag.remove(deletionIndex);
+			return true;
+		}
+		return false;
+	}
+
 }
